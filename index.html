@@ -3,173 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sameer Ahamed | IT Support & TDL Developer</title>
+    <title>Sameer Ahamed | IT Support Engineer & TDL Developer</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --text-color: #f8fafc;
-            --muted-color: #94a3b8;
+            --bg: #0b0f17;
+            --card-bg: rgba(22, 30, 46, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --gold: #fbbf24;
+            --gold-glow: rgba(251, 191, 36, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text-primary);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding-bottom: 4rem;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(251, 191, 36, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 860px;
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
+        /* Header / Hero Section */
         header {
+            padding: 4rem 0 2.5rem;
             text-align: center;
-            padding: 2rem 0;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: var(--text-color);
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-top: 0.5rem;
+        .hero-title {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
-        .contact-info {
-            margin-top: 1rem;
-            color: var(--muted-color);
-            font-size: 0.95rem;
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        .contact-info a {
-            color: var(--accent-color);
+        .contact-bar a {
+            color: var(--text-primary);
             text-decoration: none;
+            transition: color 0.2s;
         }
 
+        .contact-bar a:hover {
+            color: var(--accent);
+        }
+
+        /* Section Layouts */
         section {
-            margin: 2.5rem 0;
+            margin: 3.5rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
 
         h2 {
-            color: var(--accent-color);
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
 
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background: var(--card-border);
+        }
+
+        /* Cards */
         .card {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
         }
 
-        .skill-tag {
-            background-color: #334155;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 500;
+        /* Awards Highlight */
+        .award-card {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(90deg, var(--gold-glow) 0%, var(--card-bg) 100%);
+        }
+
+        .award-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .award-issuer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Job Experience */
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .company-meta {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
         }
 
         ul {
-            list-style-position: inside;
-            color: var(--muted-color);
+            list-style: none;
         }
 
-        li {
+        ul li {
+            position: relative;
+            padding-left: 1.25rem;
             margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .skill-chip:hover {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Education & Certs Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 0;
-            color: var(--muted-color);
-            font-size: 0.9rem;
-            border-top: 1px solid #334155;
+            padding-top: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- Header Section -->
         <header>
+            <span class="badge">Available for IT Support & ERP Projects</span>
             <h1>Sameer Ahamed</h1>
-            <p class="subtitle">IT Support Engineer | TDL Developer | ERP Specialist</p>
-            <p class="contact-info">
-                Ajman, UAE | ✉️ <a href="mailto:ae.sameerahamed@gmail.com">ae.sameerahamed@gmail.com</a> | 📞 +971 55 150 8393
-            </p>
+            <p class="hero-title">IT Support Engineer | TDL Developer | ERP Support Specialist</p>
+            <div class="contact-bar">
+                <span>📍 Ajman, UAE</span>
+                <span>✉️ <a href="mailto:ae.sameerahamed@gmail.com">ae.sameerahamed@gmail.com</a></span>
+                <span>📞 <a href="tel:+971551508393">+971 55 150 8393</a></span>
+            </div>
         </header>
 
+        <!-- About Section -->
         <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Dedicated IT Support Engineer with expertise in technical troubleshooting, software configuration, system maintenance, and ERP application customization. Experienced in TDL development for Tally ERP/TallyPrime, business process automation, and delivering efficient technology solutions that enhance workplace productivity.
+            <div class="section-header">
+                <h2>About</h2>
+                <div class="line"></div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 1.05rem;">
+                Dedicated IT Support Engineer with extensive experience in technical troubleshooting, system infrastructure, software maintenance, and ERP application customization. Proven track record in developing tailored TDL solutions for Tally ERP/TallyPrime, streamlining business workflows, and improving workplace operational productivity.
             </p>
         </section>
 
+        <!-- Awards & Honors Section -->
+        <section id="awards">
+            <div class="section-header">
+                <h2>Honors & Recognition</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="card award-card">
+                <div class="job-header">
+                    <div>
+                        <div class="award-title">🏆 Innovation & Technical Excellence Award 2025</div>
+                        <div class="award-issuer">UHS Enterprises FZC</div>
+                    </div>
+                </div>
+                <p class="award-desc">
+                    Awarded for outstanding technical expertise, software excellence, and delivering innovative software solutions.
+                </p>
+            </div>
+
+            <div class="card award-card">
+                <div class="job-header">
+                    <div>
+                        <div class="award-title">⭐ Best Rising Star of the Year 2024</div>
+                        <div class="award-issuer">UHS Enterprises</div>
+                    </div>
+                </div>
+                <p class="award-desc">
+                    Recognized for exceptional performance, rapid technical growth, and high impact in system and application support.
+                </p>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
         <section id="experience">
-            <h2>Professional Experience</h2>
+            <div class="section-header">
+                <h2>Professional Experience</h2>
+                <div class="line"></div>
+            </div>
+
             <div class="card">
-                <h3>TDL Developer & Technical Support Specialist</h3>
-                <p style="color: var(--accent-color); font-size: 0.9rem;">RUSH Software Systems LLC | 06/2023 - Present | Ajman, UAE</p>
-                <ul style="margin-top: 0.8rem;">
-                    <li>Develop and modify TDL solutions for Tally ERP / TallyPrime to improve business workflows and report generation.</li>
-                    <li>Diagnose and resolve hardware, software, networking, and system-level technical issues.</li>
-                    <li>Provide end-user support, application configuration, and ERP implementation guidance.</li>
-                    <li>Automate invoice formats, financial reporting, and customized accounting workflows.</li>
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">TDL Developer & Technical Support Specialist</div>
+                        <div class="company-meta">RUSH Software Systems LLC • Ajman, UAE</div>
+                    </div>
+                    <span class="job-date">06/2023 – Present</span>
+                </div>
+                <ul>
+                    <li>Develop and modify customized TDL (Tally Definition Language) solutions for Tally ERP / TallyPrime to enhance reporting and automate business processes.</li>
+                    <li>Provide full-spectrum IT support by diagnosing and resolving hardware, software, networking, and OS-level issues.</li>
+                    <li>Automate financial reporting, invoice formats, and ERP accounting workflows tailored to client needs.</li>
+                    <li>Assist end-users through remote desktop support, software installation, system configuration, and technical training.</li>
                 </ul>
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills">
-            <h2>Technical Skills</h2>
+            <div class="section-header">
+                <h2>Core Expertise</h2>
+                <div class="line"></div>
+            </div>
             <div class="skills-grid">
-                <div class="skill-tag">TDL Development</div>
-                <div class="skill-tag">Tally ERP / TallyPrime</div>
-                <div class="skill-tag">Odoo & Zoho Support</div>
-                <div class="skill-tag">IT Technical Support</div>
-                <div class="skill-tag">Windows OS Support</div>
-                <div class="skill-tag">Network Setup & Wi-Fi</div>
-                <div class="skill-tag">Process Automation</div>
-                <div class="skill-tag">Web Technologies</div>
+                <div class="skill-chip">TDL Development & Customization</div>
+                <div class="skill-chip">Tally ERP / TallyPrime Support</div>
+                <div class="skill-chip">Odoo & Zoho Support</div>
+                <div class="skill-chip">IT Infrastructure & Technical Support</div>
+                <div class="skill-chip">Windows OS & Remote Desktop</div>
+                <div class="skill-chip">Network Configuration (LAN / Wi-Fi / IP)</div>
+                <div class="skill-chip">Business Process Automation</div>
+                <div class="skill-chip">Web Technologies & WordPress</div>
             </div>
         </section>
 
+        <!-- Education & Certifications -->
         <section id="education">
-            <h2>Education & Certification</h2>
-            <div class="card">
-                <h3>Bachelor of Computer Applications (BCA)</h3>
-                <p style="color: var(--muted-color);">MIET Arts & Science College | Tamil Nadu, India (2022)</p>
+            <div class="section-header">
+                <h2>Education & Training</h2>
+                <div class="line"></div>
             </div>
-            <div class="card">
-                <h3>Office Administration Skill Building</h3>
-                <p style="color: var(--muted-color);">ICICI Academy for Skills</p>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="job-title">Bachelor of Computer Applications (BCA)</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">MIET Arts & Science College • 2022</p>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">Tamil Nadu, India</p>
+                </div>
+                <div class="card">
+                    <div class="job-title">Office Administration Programme</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">ICICI Academy for Skills</p>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">Business Communication, MS Office & Admin</p>
+                </div>
             </div>
         </section>
 
+        <!-- Footer -->
         <footer>
             <p>© Sameer Ahamed. Hosted on GitHub Pages.</p>
         </footer>
