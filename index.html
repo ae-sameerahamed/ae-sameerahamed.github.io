@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sameer Ahamed - IT Support Engineer & TDL Developer based in Ajman, UAE.">
+    <title>Sameer Ahamed | IT Support Engineer & TDL Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #0b0f17;
+            --card-bg: rgba(22, 30, 46, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --gold: #fbbf24;
+            --gold-glow: rgba(251, 191, 36, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-bottom: 4rem;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(251, 191, 36, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero / Header with Profile Visual */
+        header {
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+        }
+
+        .profile-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 25px var(--accent-glow);
+            background: #161e2e;
+        }
+
+        .status-dot {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            background: #22c55e;
+            border: 3px solid var(--bg);
+            border-radius: 50%;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-bar a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-bar a:hover {
+            color: var(--accent);
+        }
+
+        /* Stats Bar Graphical Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.25rem;
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Layouts */
+        section {
+            margin: 3.5rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background: var(--card-border);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.25rem;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Awards Highlight */
+        .award-card {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(90deg, var(--gold-glow) 0%, var(--card-bg) 100%);
+        }
+
+        .award-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .award-issuer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .award-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Job Experience */
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .company-meta {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 0.15rem;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.60rem;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Visual Graphic Banner */
+        .tech-banner {
+            width: 100%;
+            height: 120px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(15, 23, 42, 0.8));
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tech-banner i {
+            font-size: 2.5rem;
+            color: rgba(56, 189, 248, 0.25);
+        }
+
+        /* Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .skill-chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 0.55rem 1rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .skill-chip:hover {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Education Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 3rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.1rem; }
+            .hero-title { font-size: 1.05rem; }
+            .job-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="profile-wrapper">
+                <!-- Replace 'https://via.placeholder.com/150' with your actual photo path (e.g. 'profile.jpg') -->
+                <img src="https://ui-avatars.com/api/?name=Sameer+Ahamed&background=0D8ABC&color=fff&size=150" alt="Sameer Ahamed" class="profile-img">
+                <div class="status-dot" title="Available for work"></div>
+            </div>
+
+            <span class="badge">
+                <i class="fa-solid fa-circle-dot"></i> Available for IT Support & ERP Projects
+            </span>
+            <h1>Sameer Ahamed</h1>
+            <p class="hero-title">IT Support Engineer | TDL Developer | ERP Support Specialist</p>
+            <div class="contact-bar">
+                <span><i class="fa-solid fa-location-dot"></i> Ajman, UAE</span>
+                <span><i class="fa-solid fa-envelope"></i> <a href="mailto:ae.sameerahamed@gmail.com">ae.sameerahamed@gmail.com</a></span>
+                <span><i class="fa-solid fa-phone"></i> <a href="tel:+971551508393">+971 55 150 8393</a></span>
+            </div>
+
+            <!-- Graphical Stat Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fa-solid fa-code"></i>
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years IT Experience</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-sliders"></i>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">TDL Customizations</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">System Uptime Support</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Graphic Banner -->
+        <div class="tech-banner">
+            <i class="fa-solid fa-network-wired"></i>
+            <i class="fa-solid fa-server"></i>
+            <i class="fa-solid fa-laptop-code"></i>
+            <i class="fa-solid fa-database"></i>
+        </div>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <i class="fa-solid fa-user"></i>
+                <h2>About</h2>
+                <div class="line"></div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 1.025rem;">
+                Dedicated IT Support Engineer with extensive experience in technical troubleshooting, system infrastructure, software maintenance, and ERP application customization. Proven track record in developing tailored TDL solutions for Tally ERP/TallyPrime, streamlining business workflows, and improving workplace operational productivity.
+            </p>
+        </section>
+
+        <!-- Honors & Recognition Section -->
+        <section id="awards">
+            <div class="section-header">
+                <i class="fa-solid fa-trophy"></i>
+                <h2>Honors & Recognition</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="card award-card">
+                <div class="job-header">
+                    <div>
+                        <div class="award-title"><i class="fa-solid fa-award"></i> Innovation & Technical Excellence Award 2025</div>
+                        <div class="award-issuer">UHS Enterprises FZC</div>
+                    </div>
+                </div>
+                <p class="award-desc">
+                    Awarded for outstanding technical expertise, software excellence, and delivering innovative software solutions.
+                </p>
+            </div>
+
+            <div class="card award-card">
+                <div class="job-header">
+                    <div>
+                        <div class="award-title"><i class="fa-solid fa-star"></i> Best Rising Star of the Year 2024</div>
+                        <div class="award-issuer">UHS Enterprises</div>
+                    </div>
+                </div>
+                <p class="award-desc">
+                    Recognized for exceptional performance, rapid technical growth, and high impact in system and application support.
+                </p>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="experience">
+            <div class="section-header">
+                <i class="fa-solid fa-briefcase"></i>
+                <h2>Professional Experience</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="card">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">TDL Developer & Technical Support Specialist</div>
+                        <div class="company-meta">RUSH Software Systems LLC • Ajman, UAE</div>
+                    </div>
+                    <span class="job-date">06/2023 – Present</span>
+                </div>
+                <ul>
+                    <li>Develop and modify customized TDL (Tally Definition Language) solutions for Tally ERP / TallyPrime to enhance reporting and automate business processes.</li>
+                    <li>Provide full-spectrum IT support by diagnosing and resolving hardware, software, networking, and OS-level issues.</li>
+                    <li>Automate financial reporting, invoice formats, and ERP accounting workflows tailored to client needs.</li>
+                    <li>Assist end-users through remote desktop support, software installation, system configuration, and technical training.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Core Expertise / Skills Section -->
+        <section id="skills">
+            <div class="section-header">
+                <i class="fa-solid fa-gears"></i>
+                <h2>Core Expertise</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-chip"><i class="fa-solid fa-code"></i> TDL Development & Customization</div>
+                <div class="skill-chip"><i class="fa-solid fa-calculator"></i> Tally ERP / TallyPrime Support</div>
+                <div class="skill-chip"><i class="fa-solid fa-boxes-stacked"></i> Odoo & Zoho Support</div>
+                <div class="skill-chip"><i class="fa-solid fa-network-wired"></i> IT Infrastructure & Support</div>
+                <div class="skill-chip"><i class="fa-brands fa-windows"></i> Windows OS & Remote Desktop</div>
+                <div class="skill-chip"><i class="fa-solid fa-wifi"></i> Network Configuration (LAN / Wi-Fi / IP)</div>
+                <div class="skill-chip"><i class="fa-solid fa-diagram-project"></i> Business Process Automation</div>
+                <div class="skill-chip"><i class="fa-brands fa-wordpress"></i> Web Technologies & WordPress</div>
+            </div>
+        </section>
+
+        <!-- Education & Training Section -->
+        <section id="education">
+            <div class="section-header">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>Education & Training</h2>
+                <div class="line"></div>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="job-title">Bachelor of Computer Applications (BCA)</div>
+                    <p style="color: var(--accent); font-size: 0.88rem; margin-top: 0.25rem;">MIET Arts & Science College • 2022</p>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">Tamil Nadu, India</p>
+                </div>
+                <div class="card">
+                    <div class="job-title">Office Administration Programme</div>
+                    <p style="color: var(--accent); font-size: 0.88rem; margin-top: 0.25rem;">ICICI Academy for Skills</p>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">Business Communication, MS Office & Admin</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© Sameer Ahamed. Hosted on GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
